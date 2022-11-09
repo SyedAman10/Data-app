@@ -1,40 +1,112 @@
-import styled from "styled-components/native";
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import TouchableComponent from '../touchable/touchable-component';
+import {useTheme} from '@react-navigation/native';
 
-const defaultTextStyles = (theme) => `
-  font-weight: ${theme.fontWeights.regular};
-  color: ${theme.colors.text.primary};
-  flex-wrap: wrap;
-  margin-top: 0px;
-  margin-bottom: 0px;
-`;
-const body = (theme) => `
- font-size: ${theme.fontSizes.body};
-`;
-const hint = (theme) => `
-  font-size: ${theme.fontSizes.body};
-`;
-const error = (theme) => `
-  color: ${theme.colors.text.error};
-`;
-const caption = (theme) => `
-  font-size: ${theme.fontSizes.caption};
-  font-weight: ${theme.fontWeights.bold};
-`;
-const label = (theme) => `
-  font-size: ${theme.fontSizes.body};
-  font-weight: ${theme.fontWeights.medium};
-`;
-const variants = {
-  body,
-  label,
-  caption,
-  error,
-  hint,
+const Typography = (props: any) => {
+  const theme = useTheme();
+  const {
+    children,
+    varient,
+    color,
+    textAlign,
+    spacing,
+    spacingTop,
+    spacingBottom,
+    singleLine,
+    onTap,
+    style,
+    numberOfLines,
+  } = props;
+  if (onTap) {
+    return (
+      <TouchableComponent onTap={onTap}>
+        <View>
+          <Text
+            numberOfLines={
+              singleLine ? 1 : numberOfLines ? numberOfLines : undefined
+            }
+            style={{
+              ...styles[varient ? varient : 'text2'],
+              ...{
+                color: color || theme.colors.text,
+                marginTop: spacingTop || spacing || 0,
+                marginBottom: spacingBottom || spacing || 0,
+                textAlign: textAlign,
+              },
+              ...style,
+            }}>
+            {children}
+          </Text>
+        </View>
+      </TouchableComponent>
+    );
+  }
+  return (
+    <Text
+      numberOfLines={singleLine ? 1 : numberOfLines ? numberOfLines : undefined}
+      style={{
+        ...styles[varient ? varient : 'text2'],
+        ...{
+          color: color || theme.colors.text,
+          marginTop: spacingTop || spacing || 0,
+          marginBottom: spacingBottom || spacing || 0,
+          textAlign: textAlign,
+        },
+        ...style,
+      }}>
+      {children}
+    </Text>
+  );
 };
-export const Text = styled.Text`
-  ${({ theme }) => defaultTextStyles(theme)}
-  ${({ variant, theme }) => variants[variant](theme)}
-`;
-Text.defaultProps = {
-  variant: "body",
-};
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 32,
+    fontFamily: 'Nunito-ExtraBold',
+  },
+  heading: {
+    fontSize: 30,
+    fontFamily: 'Nunito-ExtraBold',
+    fontWeight: '700',
+  },
+  heading2: {
+    fontSize: 25,
+    fontFamily: 'Nunito-SemiBold',
+  },
+  subheading1: {
+    fontSize: 20,
+    fontFamily: 'Nunito-SemiBold',
+  },
+  subheading2: {
+    fontSize: 15,
+    fontFamily: 'Nunito-SemiBold',
+  },
+  text1: {
+    fontSize: 12,
+    fontFamily: 'Nunito-Regular',
+  },
+  text2: {
+    fontSize: 10,
+    fontFamily: 'Nunito-Regular',
+  },
+  subheading1strong: {
+    fontSize: 20,
+    fontFamily: 'Nunito-ExtraBold',
+  },
+  subheading2strong: {
+    fontSize: 15,
+    fontFamily: 'Nunito-ExtraBold',
+  },
+  text1strong: {
+    fontSize: 12,
+    fontFamily: 'Nunito-ExtraBold',
+  },
+  text2strong: {
+    fontSize: 10,
+    fontFamily: 'Nunito-ExtraBold',
+  },
+});
+
+export default Typography;
+

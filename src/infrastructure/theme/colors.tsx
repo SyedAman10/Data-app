@@ -1,7 +1,7 @@
 export const colors = {
   brand: {
-    primary: '#2182BD',
-    secondary: '#5282BD',
+    primary: '#0DB6AB',
+    secondary: '#7FBF4E',
     muted: '#C6DAF7',
   },
   ui: {

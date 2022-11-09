@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { useTheme } from "styled-components/native";
+import styled, {useTheme} from "styled-components";
 
 const sizeVariant = {
   small: 1,
@@ -18,7 +18,6 @@ const getVariant = (position, size, theme) => {
   const sizeIndex = sizeVariant[size];
   const property = positionVariant[position];
   const value = theme.space[sizeIndex];
-
   return `${property}:${value}`;
 };
 

@@ -1,14 +1,17 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
 
 import {SafeArea} from './src/components/utility/safe-area.component';
+import {LoginScreen} from './src/app/login/login-screen';
+import {ThemeProvider} from 'styled-components';
+import {theme} from './src/infrastructure/theme';
+
 const App = () => {
   return (
-    <SafeArea>
-      <ScrollView>
-        <Text>Welcome</Text>
-      </ScrollView>
-    </SafeArea>
+    <ThemeProvider theme={theme}>
+      <SafeArea>
+        <LoginScreen />
+      </SafeArea>
+    </ThemeProvider>
   );
 };
 
