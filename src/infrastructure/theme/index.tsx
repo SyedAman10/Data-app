@@ -1,4 +1,4 @@
-import {colors} from './colors';
+import {colors} from './color';
 import {space, lineHeights} from './spacing';
 import {sizes} from './sizes';
 import {fontWeights, fontSizes} from './fonts';
