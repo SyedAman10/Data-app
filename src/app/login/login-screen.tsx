@@ -1,26 +1,24 @@
 import React, {useState} from 'react';
-
-import Typography from '../../components/typography/text-component';
-import { 
+import Btn from '../../components/button/Btn';
+import Icongraphy from '../../infrastructure/theme/Icongraphy';
+import Input from '../../components/inputfield/InputField';
+import Typography from '../../infrastructure/theme/Typography';
+import {Space} from '../../components/spacer/spacer-component';
+import {
   SignUpContainer,
-  styles,
-  SignUpButton, 
-  LoginView, 
-  LoginHeading,
-  LoginInputContainer, 
-  Input, 
-  Space, 
-  ForgetPasswordContainer, 
-  AuthButton,
   LoginButtonContainer,
-  ForgetPassButton,
-} from './login_style';
+  LoginHeading,
+  LoginScreenView,
+  ForgetPasswordContainer,
+  LoginInputContainer,
+} from './login-screen-styles';
 
-export const LoginScreen = ({}) => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+const LoginScreen = (props: any) => {
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+
   return (
-    <LoginView
+    <LoginScreenView
       contentContainerStyle={{
         alignItems: 'center',
       }}>
@@ -30,64 +28,63 @@ export const LoginScreen = ({}) => {
           Login To Your Account
         </Typography>
       </LoginHeading>
+
       <LoginInputContainer>
         <Input
-          mode="outlined"
-          value={email}
+          type="text"
           label="Username / Email"
-          underlineColorAndroid={'rgba(0,0,0,0)'}
-          text="white"
-          theme={styles.textInputOutlineStyle}
           placeholder="Username / Email"
-          textContentType="emailAddress"
-          keyboardType="email-address"
-          autoCapitalize="none" 
-          right={<Input.Icon icon="eye" />} 
-          onChangeText={u => setEmail(u)}
+          right={<Icongraphy family="FontAwesome" name="envelope" />}
+          spacing={20}
+          removeClippedSubviews={true}
+          enablesReturnKeyAutomatically={true}
+          blurOnSubmit={false}
+          returnKeyType="next"
+          value={Email}
+          onChangeText={(val: string) => setEmail(val)}
         />
-        <Space>
-          <Input
-            mode="outlined"
-            label="Password"
-            value={password}
-            underlineColorAndroid={'rgba(0,0,0,0)'}
-            text="white"
-            theme={styles.textInputOutlineStyle}
-            placeholder="Password"
-            textContentType="password"
-            autoCapitalize="none"
-            secureTextEntry={true}
-            right={<Input.Icon icon="eye" />} 
-            onChangeText={u => setPassword(u)}
-          />
-        </Space>
-
+        <Space />
+        <Input
+          type="text"
+          label="Password"
+          placeholder="Password"
+          secureTextEntry={true}
+          right={<Icongraphy family="Entypo" name="lock" />}
+          removeClippedSubviews={true}
+          enablesReturnKeyAutomatically={true}
+          blurOnSubmit={true}
+          returnKeyType="go"
+          value={Password}
+          onChangeText={(val: string) => setPassword(val)}
+        />
+        <Space />
         <ForgetPasswordContainer>
-          <ForgetPassButton 
-            uppercase={false} 
-            labelStyle={{fontSize:12}} 
-            mode="text" 
-            onPress={() => console.log('Pressed')}>
-            Forget Password?
-          </ForgetPassButton>
+          <Btn
+            title="Forgot Password?"
+            varient="text"
+            onTap={() => props.navigation.navigate('ForgotPasswordScreen')}
+          />
         </ForgetPasswordContainer>
       </LoginInputContainer>
       <LoginButtonContainer>
-        <AuthButton  
-          uppercase={false}
-          mode="contained" 
-          labelStyle={{ color: "white", fontSize: 16 }}>
-          Login
-        </AuthButton>
+        <Btn
+          title="Login"
+          varient="filled"
+          component="primaryBtn"
+          loadingColor="white"
+          onTap={() => console.log('pressed')}
+        />
         <SignUpContainer>
           <Typography varient="text1">Don't have an account?</Typography>
-          <SignUpButton
-            labelStyle={{fontSize: 12}} 
-            uppercase={false}>
-            SignUp
-          </SignUpButton>  
+          <Btn
+            varient="text"
+            component="minimum"
+            title="Sign Up"
+            onTap={() => props.navigation.navigate('RegisterScreen')}
+          />
         </SignUpContainer>
       </LoginButtonContainer>
-    </LoginView>
+    </LoginScreenView>
   );
 };
+export default LoginScreen;

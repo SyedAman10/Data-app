@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {useTheme} from "styled-components";
-
+import { View } from "react-native";
 const sizeVariant = {
   small: 1,
   medium: 2,
@@ -35,3 +35,7 @@ Spacer.defaultProps = {
   position: "top",
   size: "small",
 };
+
+export const Space = styled(View)`
+  margin-bottom: 10px;
+`;
