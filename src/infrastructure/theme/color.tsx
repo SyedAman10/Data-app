@@ -1,0 +1,67 @@
+<<<<<<< HEAD:src/infrastructure/theme/colors.tsx
+import {DefaultTheme} from '@react-navigation/native';
+
+export default {
+  primary: 'rgba(2, 160, 100, 1)',
+  accent: '#8125e1',
+  fontColor: '#103e8a',
+  fontColor2: '#3b86e5',
+  fontColor3: 'rgba(210, 227, 253, 1)',
+  lightPurple: '#777dd9',
+  littleLightPurple: 'rgba(119, 125, 217,.2)',
+  halfLightPurple: 'rgba(119, 125, 217,.5)',
+  darkPurple: '#1d256d',
+  halfDarkPurple: 'rgba(29, 37, 109,.5)',
+  littleDarkPurple: 'rgba(29, 37, 109,.2)',
+  golden: '#E0AA32',
+  darkGray: '#4A4B51',
+  darkTheme: 'rgba(61,61,61,1)',
+  gray: '#7A7A7A',
+  lightGray: '#D7DBDD',
+  littleGray: '#E5E7E9',
+  tinyGray: '#F8F9F9',
+  black: '#000000',
+  halfBlack: 'rgba(0,0,0,.5)',
+  littleBlack: 'rgba(0,0,0,.2)',
+  tinyBlack: 'rgba(0,0,0,.1)',
+  transparent: 'rgba(0,0,0,0)',
+  green: '#0a4726',
+  red: '#df1020',
+  blue: 'blue',
+  gradient: ['#0050aa', '#1081d2', '#8125e1'],
+  white: '#ffffff',
+  halfWhite: 'rgba(255,255,255,.5)',
+  littleWhite: 'rgba(255,255,255,.2)',
+  // default: "#f1f7ff",
+  bg: 'rgba(229, 239, 255, 1)',
+  default: DefaultTheme.colors.background,
+=======
+export const colors = {
+  brand: {
+    primary: '#3ac4bb',
+    secondary: '#446935',
+    muted: '#C6DAF7',
+  },
+  ui: {
+    primary: '#262626',
+    secondary: '#757575',
+    tertiary: '#F1F1F1',
+    quaternary: '#FFFFFF',
+    disabled: '#DEDEDE',
+    error: '#D0421B',
+    success: '#138000',
+  },
+  bg: {
+    primary: '#FFFFFF',
+    secondary: '#F1F1F1',
+  },
+  text: {
+    primary: '#FFFFFF',
+    secondary: '#757575',
+    disabled: '#9C9C9C',
+    inverse: '#FFFFFF',
+    error: '#D0421B',
+    success: '#138000',
+  },
+>>>>>>> 31933125442dc0ccc73c38f4d4e1066e8b7135a7:src/infrastructure/theme/color.tsx
+};

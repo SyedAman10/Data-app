@@ -37,5 +37,10 @@ Spacer.defaultProps = {
 };
 
 export const Space = styled(View)`
+<<<<<<< HEAD
   margin-bottom: 10px;
+=======
+  
+  margin-bottom: 15px;
+>>>>>>> 31933125442dc0ccc73c38f4d4e1066e8b7135a7
 `;
