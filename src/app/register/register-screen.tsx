@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Input from '../../components/inputfield/InputField';
@@ -12,6 +12,7 @@ import {
   RegisterButtonContainer,
   LoginContainer,
 } from './register-screen-styles';
+import { AuthContext } from '../../context/auth-context';
 
 const RegisterScreen = (props: any) => {
   const [FirstName, setFirstName] = useState('');
@@ -20,7 +21,7 @@ const RegisterScreen = (props: any) => {
   const [Address, setAddress] = useState('');
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-
+  const {logout} = useContext(AuthContext);
   return (
     <RegisterScreenView
       contentContainerStyle={{
@@ -132,7 +133,7 @@ const RegisterScreen = (props: any) => {
           title="Sign Up"
           varient="filled"
           component="primaryBtn"
-          onTap={() => console.log('pressed')}
+          onTap={() => logout()}
           textVarient="subheading1"
         />
         <LoginContainer>

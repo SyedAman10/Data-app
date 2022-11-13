@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Input from '../../components/inputfield/InputField';
 import Typography from '../../infrastructure/theme/Typography';
 import {Space} from '../../components/spacer/spacer-component';
+import {Text} from 'react-native';
 import {
   SignUpContainer,
   LoginButtonContainer,
@@ -12,11 +13,12 @@ import {
   ForgetPasswordContainer,
   LoginInputContainer,
 } from './login-screen-styles';
+import { AuthContext } from '../../context/auth-context';
 
 const LoginScreen = (props: any) => {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-
+  const {login} = useContext(AuthContext);
   return (
     <LoginScreenView
       contentContainerStyle={{
@@ -41,7 +43,7 @@ const LoginScreen = (props: any) => {
           blurOnSubmit={false}
           returnKeyType="next"
           value={Email}
-          onChangeText={(val: string) => setEmail(val)}
+          onChangeText={text => setEmail(text)}
         />
         <Space />
         <Input
@@ -55,7 +57,7 @@ const LoginScreen = (props: any) => {
           blurOnSubmit={true}
           returnKeyType="go"
           value={Password}
-          onChangeText={(val: string) => setPassword(val)}
+          onChangeText={text => setPassword(text)}
         />
         <Space />
         <ForgetPasswordContainer>
@@ -72,7 +74,7 @@ const LoginScreen = (props: any) => {
           varient="filled"
           component="primaryBtn"
           loadingColor="white"
-          onTap={() => console.log('pressed')}
+          onTap={() => login(Email, Password)}
         />
         <SignUpContainer>
           <Typography varient="text1">Don't have an account?</Typography>

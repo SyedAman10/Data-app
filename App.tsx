@@ -1,29 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
-import React, {useState} from 'react';
-
+import {View, ActivityIndicator} from 'react-native';
+import React, {useState, useContext} from 'react';
+import AppNav from './src/navigation/app-nav';
 import StackNavigator from './src/navigation/StackNavigator';
 import StorybookUI from './storybook';
 import Config from 'react-native-config';
 import WalletConnectProvider from '@walletconnect/react-native-dapp';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import AuthContext from './src/context/auth-context';
+import {AuthProvider} from './src/context/auth-context';
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState('dark');
-
   let MyTheme = {
     ...DefaultTheme,
     colors: {
@@ -81,22 +73,9 @@ const App = () => {
     };
   }
   return (
-    <WalletConnectProvider
-      bridge="https://bridge.walletconnect.org"
-      clientMeta={{
-        description: 'Connect with WalletConnect',
-        url: 'https://walletconnect.org',
-        icons: ['https://walletconnect.org/walletconnect-logo.png'],
-        name: 'WalletConnect',
-      }}
-      redirectUrl={'datahubapp://'}
-      storageOptions={{
-        asyncStorage: AsyncStorage,
-      }}>
-      <NavigationContainer theme={MyTheme}>
-        <StackNavigator />
-      </NavigationContainer>
-    </WalletConnectProvider>
+    <AuthProvider>
+        <AppNav />
+      </AuthProvider>
   );
 };
 
