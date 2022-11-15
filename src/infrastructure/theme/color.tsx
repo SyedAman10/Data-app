@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/infrastructure/theme/colors.tsx
 import {DefaultTheme} from '@react-navigation/native';
 
 export default {
@@ -35,33 +34,4 @@ export default {
   // default: "#f1f7ff",
   bg: 'rgba(229, 239, 255, 1)',
   default: DefaultTheme.colors.background,
-=======
-export const colors = {
-  brand: {
-    primary: '#3ac4bb',
-    secondary: '#446935',
-    muted: '#C6DAF7',
-  },
-  ui: {
-    primary: '#262626',
-    secondary: '#757575',
-    tertiary: '#F1F1F1',
-    quaternary: '#FFFFFF',
-    disabled: '#DEDEDE',
-    error: '#D0421B',
-    success: '#138000',
-  },
-  bg: {
-    primary: '#FFFFFF',
-    secondary: '#F1F1F1',
-  },
-  text: {
-    primary: '#FFFFFF',
-    secondary: '#757575',
-    disabled: '#9C9C9C',
-    inverse: '#FFFFFF',
-    error: '#D0421B',
-    success: '#138000',
-  },
->>>>>>> 31933125442dc0ccc73c38f4d4e1066e8b7135a7:src/infrastructure/theme/color.tsx
 };

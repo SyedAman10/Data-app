@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, ScrollView, SafeAreaView, Image} from 'react-native';
-import {dimensions, baseStyles} from '../../infrastructure/theme/BaseStyles';
+import {dimensions} from '../../infrastructure/theme/baseStyles';
+import baseStyles from '../../infrastructure/theme/baseStyles';
 import Header from '../../components/header/Header';
 import Typography from '../../infrastructure/theme/Typography';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import {useTheme} from '@react-navigation/native';
-import Input from '../../components/inputfield/InputField';
+import Input from '../../components/Input/input-field';
 import Btn from '../../components/button/Btn';
 import Dialog, {getDialogConfig} from '../../components/dialog/Dialog';
-import { Space } from '../../components/spacer/spacer-component';
+import {Space} from '../../components/spacer/spacer-component';
 
 const ChangePasswordScreen = (props: any) => {
   const theme = useTheme();

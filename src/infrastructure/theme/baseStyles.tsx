@@ -1313,3 +1313,5 @@ export const baseStyles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+
+export default baseStyles;

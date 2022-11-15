@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {View, ScrollView, StyleSheet, SafeAreaView} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import Dialog, {getDialogConfig} from '../../components/dialog/Dialog';
-import {baseStyles} from '../../infrastructure/theme/BaseStyles';
 import Btn from '../../components/button/Btn';
 
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Typography from '../../infrastructure/theme/Typography';
-import Input from '../../components/inputfield/InputField';
+import Input from '../../components/Input/input-field';
 import Header from '../../components/header/Header';
-
+import {
+  ContactUsContainer,
+  ContactUsView, 
+  ContactUsContent,
+} from './contact-us.style';
 const ContactUsScreen = (props: any) => {
   const defaultData = {
     name: '',
@@ -82,8 +85,7 @@ const ContactUsScreen = (props: any) => {
   }
 
   return (
-    <SafeAreaView
-      style={{...styles.container, backgroundColor: theme.colors.primary}}>
+    <ContactUsView>
       <Header
         title="Contact Us"
         onLeftBtnTab={() => props.navigation.goBack()}
@@ -93,16 +95,8 @@ const ContactUsScreen = (props: any) => {
       <Typography varient="heading" color="white">
         Contact Us
       </Typography>
-      <View style={{...baseStyles.flex, ...baseStyles.jc_flex_end}}>
-        <View
-          style={{
-            ...baseStyles.height80,
-            ...baseStyles.width,
-            ...baseStyles.brt20,
-            ...baseStyles.ai_center,
-            ...baseStyles.p20,
-            ...{backgroundColor: theme.colors.background},
-          }}>
+      <ContactUsContainer>
+        <ContactUsContent>
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
@@ -150,18 +144,11 @@ const ContactUsScreen = (props: any) => {
               }}
             />
           </ScrollView>
-        </View>
-      </View>
+        </ContactUsContent>
+      </ContactUsContainer>
       <Dialog {...dialogConfig} />
-    </SafeAreaView>
+    </ContactUsView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
 
 export default ContactUsScreen;

@@ -1,27 +1,12 @@
-<<<<<<< HEAD
 import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
-import {View, ActivityIndicator} from 'react-native';
-import React, {useState, useContext} from 'react';
-import AppNav from './src/navigation/app-nav';
+import React, {useState} from 'react';
 import StackNavigator from './src/navigation/StackNavigator';
 import StorybookUI from './storybook';
 import Config from 'react-native-config';
-import WalletConnectProvider from '@walletconnect/react-native-dapp';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import AuthContext from './src/context/auth-context';
-import {AuthProvider} from './src/context/auth-context';
-=======
-import React from 'react';
-
-import {ThemeProvider} from 'styled-components';
-import {theme} from './src/infrastructure/theme';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import ForgetPasswordScreen from './src/app/forgetpassword/forgetpassword-screen';
->>>>>>> 31933125442dc0ccc73c38f4d4e1066e8b7135a7
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState('dark');
@@ -82,17 +67,9 @@ const App = () => {
     };
   }
   return (
-<<<<<<< HEAD
-    <AuthProvider>
-        <AppNav />
-      </AuthProvider>
-=======
-    <ThemeProvider theme={theme}>
-      <SafeAreaProvider style={{backgroundColor:"#08131b"}}>
-        <ForgetPasswordScreen />
-      </SafeAreaProvider>
-    </ThemeProvider>
->>>>>>> 31933125442dc0ccc73c38f4d4e1066e8b7135a7
+    <NavigationContainer theme={MyTheme}>
+      <StackNavigator />
+    </NavigationContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
-import Input from '../../components/inputfield/InputField';
+import Input from '../../components/Input/input-field';
 import Typography from '../../infrastructure/theme/Typography';
 import {Space} from '../../components/spacer/spacer-component';
 import {

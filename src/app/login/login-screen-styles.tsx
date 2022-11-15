@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import styled from 'styled-components';
 
 export const LoginScreenView = styled(ScrollView)`

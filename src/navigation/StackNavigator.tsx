@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -7,12 +7,10 @@ import RegisterScreen from '../app/register/register-screen';
 import ContactUsScreen from '../app/contact-us/contact-us.screen';
 import ChangePasswordScreen from '../app/change-password/change-password.screen';
 import ForgotPasswordScreen from '../app/forgetpassword/forget-password.screen';
-import {View, ActivityIndicator} from 'react-native';
-import {AuthContext} from '../context/auth-context';
+
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-
   return (
     <Stack.Navigator
       screenOptions={{header: () => null}}

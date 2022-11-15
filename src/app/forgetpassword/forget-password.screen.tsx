@@ -2,9 +2,8 @@ import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
-import Input from '../../components/inputfield/InputField';
+import Input from '../../components/Input/input-field';
 import Typography from '../../infrastructure/theme/Typography';
-import {baseStyles, dimensions} from '../../infrastructure/theme/BaseStyles';
 import {ForgetPasswordView, ForgetPassContainer} from './forget-password.style';
 import {Space} from '../../components/spacer/spacer-component';
 

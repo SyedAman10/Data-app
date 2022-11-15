@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import TouchableComponent from '../touchable/TouchableComponent';
-import {dimensions} from '../../infrastructure/theme/BaseStyles';
+import {dimensions} from '../../infrastructure/theme/baseStyles';
 import Typography from '../../infrastructure/theme/Typography';
 import {useTheme} from '@react-navigation/native';
 

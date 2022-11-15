@@ -6,7 +6,7 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
-import {baseStyles} from '../../infrastructure/theme/BaseStyles';
+import {baseStyles} from '../../infrastructure/theme/baseStyles';
 import RoundBtn from '../button/RoundBtn';
 import Btn from '../button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
