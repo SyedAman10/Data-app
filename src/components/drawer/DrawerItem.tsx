@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 import TouchableComponent from '../touchable/TouchableComponent';
 import Colors from '../../infrastructure/theme/Colors';
 import {baseStyles} from '../../infrastructure/theme/BaseStyles';

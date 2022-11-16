@@ -41,9 +41,7 @@ const InputField = (props: any) => {
     spacingTop,
     spacingBottom,
     status,
-    onTap,
-    width,
-    height,
+    backgroundColor,
     enablesReturnKeyAutomatically,
     blurOnSubmit,
   } = props;
@@ -54,6 +52,7 @@ const InputField = (props: any) => {
     <>
       {type === 'text' && (
         <TextInput
+          backgroundColor={backgroundColor}
           ref={inputref}
           value={value}
           onChange={onChange}

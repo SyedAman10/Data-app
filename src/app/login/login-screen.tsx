@@ -1,9 +1,13 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
+import {Alert} from 'react-native';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Input from '../../components/Input/input-field';
 import Typography from '../../infrastructure/theme/Typography';
 import {Space} from '../../components/spacer/spacer-component';
+import {BASE_URL} from '../../config/config';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   SignUpContainer,
   LoginButtonContainer,
@@ -12,12 +16,24 @@ import {
   ForgetPasswordContainer,
   LoginInputContainer,
 } from './login-screen-styles';
-import {AuthContext} from '../../context/auth-context';
 
 const LoginScreen = (props: any) => {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-  
+  const onLogin = () => {
+    axios
+      .post(`${BASE_URL}/auth/local`, {
+        identifier: Email,
+        password: Password,
+      })
+      .then(response => {
+        AsyncStorage.setItem('token', response?.data?.jwt);
+        props.navigation.navigate('ConnectWalletScreen');
+      })
+      .catch(e => {
+        Alert.alert(`Unable to login. Please try again ${e}`);
+      });
+  };
   return (
     <LoginScreenView
       contentContainerStyle={{
@@ -36,13 +52,8 @@ const LoginScreen = (props: any) => {
           label="Username / Email"
           placeholder="Username / Email"
           right={<Icongraphy family="FontAwesome" name="envelope" />}
-          spacing={20}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={false}
-          returnKeyType="next"
           value={Email}
-          onChangeText={text => setEmail(text)}
+          onChangeText={(val: string) => setEmail(val)}
         />
         <Space />
         <Input
@@ -51,12 +62,8 @@ const LoginScreen = (props: any) => {
           placeholder="Password"
           secureTextEntry={true}
           right={<Icongraphy family="Entypo" name="lock" />}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={true}
-          returnKeyType="go"
           value={Password}
-          onChangeText={text => setPassword(text)}
+          onChangeText={(val: string) => setPassword(val)}
         />
         <Space />
         <ForgetPasswordContainer>
@@ -73,7 +80,7 @@ const LoginScreen = (props: any) => {
           varient="filled"
           component="primaryBtn"
           loadingColor="white"
-          onTap={() => login(Email, Password)}
+          onTap={() => onLogin()}
         />
         <SignUpContainer>
           <Typography varient="text1">Don't have an account?</Typography>

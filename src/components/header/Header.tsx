@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  SafeAreaView,
-} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {baseStyles} from '../../infrastructure/theme/baseStyles';
 import RoundBtn from '../button/RoundBtn';
 import Btn from '../button/Btn';
@@ -26,7 +20,6 @@ const Header = props => {
   let _style = {
     marginHorizontal: 10,
   };
-
   if (varient == 'default2') {
     _style = {
       width: 35,

@@ -1,9 +1,13 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
+import {Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Input from '../../components/Input/input-field';
 import Typography from '../../infrastructure/theme/Typography';
 import {Space} from '../../components/spacer/spacer-component';
+import {BASE_URL} from '../../config/config';
+import axios from 'axios';
 import {
   RegisterHeading,
   RegisterInputContainer,
@@ -12,7 +16,6 @@ import {
   RegisterButtonContainer,
   LoginContainer,
 } from './register-screen-styles';
-import { AuthContext } from '../../context/auth-context';
 
 const RegisterScreen = (props: any) => {
   const [FirstName, setFirstName] = useState('');
@@ -21,7 +24,24 @@ const RegisterScreen = (props: any) => {
   const [Address, setAddress] = useState('');
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
-  const {logout} = useContext(AuthContext);
+  const onRegister = async () => {
+    const response = await axios({
+      url: `${BASE_URL}/auth/local/register`,
+      method: 'POST',
+      data: {
+        username: `${FirstName} ${LastName}`,
+        email: Email,
+        password: Password,
+      },
+    });
+    if (response && response?.data?.jwt) {
+      AsyncStorage.setItem('token', response?.data?.jwt);
+      props.navigation.navigate('ProfileScreen');
+    } else {
+      Alert.alert('Unable to login');
+    }
+  };
+
   return (
     <RegisterScreenView
       contentContainerStyle={{
@@ -31,7 +51,7 @@ const RegisterScreen = (props: any) => {
         <Typography varient="heading" spacing={10}>
           Hello!
         </Typography>
-        <Description style={{width: '70%', alignSelf: 'center'}}>
+        <Description>
           <Typography varient="text1" textAlign="center" spacing={5}>
             Creating your account will store your preferences so that you do not
             have to retype your data again
@@ -48,11 +68,6 @@ const RegisterScreen = (props: any) => {
           label="First Name"
           placeholder="First Name"
           right={<Icongraphy family="FontAwesome" name="user" />}
-          spacing={20}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={false}
-          returnKeyType="next"
           value={FirstName}
           onChangeText={(val: string) => setFirstName(val)}
         />
@@ -62,10 +77,6 @@ const RegisterScreen = (props: any) => {
           label="Last Name"
           placeholder="Last Name"
           right={<Icongraphy family="Entypo" name="user" />}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={true}
-          returnKeyType="go"
           value={LastName}
           onChangeText={(val: string) => setLastName(val)}
         />
@@ -75,11 +86,6 @@ const RegisterScreen = (props: any) => {
           label="Phone"
           placeholder="Phone"
           right={<Icongraphy family="FontAwesome" name="phone" />}
-          spacing={20}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={false}
-          returnKeyType="next"
           value={Phone}
           onChangeText={(val: string) => setPhone(val)}
         />
@@ -88,12 +94,7 @@ const RegisterScreen = (props: any) => {
           type="text"
           label="Address"
           placeholder="Address"
-          secureTextEntry={true}
           right={<Icongraphy family="Entypo" name="location-pin" />}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={true}
-          returnKeyType="go"
           value={Address}
           onChangeText={(val: string) => setAddress(val)}
         />
@@ -103,11 +104,6 @@ const RegisterScreen = (props: any) => {
           label="Username / Email"
           placeholder="Username / Email"
           right={<Icongraphy family="FontAwesome" name="envelope" />}
-          spacing={20}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={false}
-          returnKeyType="next"
           value={Email}
           onChangeText={(val: string) => setEmail(val)}
         />
@@ -118,10 +114,6 @@ const RegisterScreen = (props: any) => {
           placeholder="Password"
           secureTextEntry={true}
           right={<Icongraphy family="Entypo" name="lock" />}
-          removeClippedSubviews={true}
-          enablesReturnKeyAutomatically={true}
-          blurOnSubmit={true}
-          returnKeyType="go"
           value={Password}
           onChangeText={(val: string) => setPassword(val)}
         />
@@ -133,7 +125,7 @@ const RegisterScreen = (props: any) => {
           title="Sign Up"
           varient="filled"
           component="primaryBtn"
-          onTap={() => logout()}
+          onTap={() => onRegister()}
           textVarient="subheading1"
         />
         <LoginContainer>

@@ -4,11 +4,13 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 import React, {useState} from 'react';
+import {LogBox} from 'react-native';
 import StackNavigator from './src/navigation/StackNavigator';
 import StorybookUI from './storybook';
 import Config from 'react-native-config';
 
 const App = () => {
+  LogBox.ignoreAllLogs();
   const [currentTheme, setCurrentTheme] = useState('dark');
   let MyTheme = {
     ...DefaultTheme,
