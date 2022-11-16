@@ -103,7 +103,7 @@ const Btn = (props: any) => {
 const styles = StyleSheet.create({
   container: {
     height: 45,
-    borderRadius: 20,
+    borderRadius: 10,
     overflow: 'hidden',
   },
   innerCont: {

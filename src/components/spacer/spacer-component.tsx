@@ -42,3 +42,6 @@ export const Space = styled(View)`
 export const MarginB = styled(View)`
   margin-bottom: 25px;
 `;
+export const MarginT = styled(View)`
+  margin-top: 100px;
+`;

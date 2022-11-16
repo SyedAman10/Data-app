@@ -4,7 +4,7 @@ import Btn from '../../components/button/Btn';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import Input from '../../components/Input/input-field';
 import Typography from '../../infrastructure/theme/Typography';
-import {Space} from '../../components/spacer/spacer-component';
+import {MarginB, MarginT, Space} from '../../components/spacer/spacer-component';
 import {BASE_URL} from '../../config/config';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -40,12 +40,13 @@ const LoginScreen = (props: any) => {
         alignItems: 'center',
       }}>
       <LoginHeading>
+        <MarginT />
         <Typography varient="heading">Welcome</Typography>
         <Typography varient="subheading1" spacing={5}>
           Login To Your Account
         </Typography>
+        <MarginB />
       </LoginHeading>
-
       <LoginInputContainer>
         <Input
           type="text"
@@ -73,6 +74,7 @@ const LoginScreen = (props: any) => {
             onTap={() => props.navigation.navigate('ForgotPasswordScreen')}
           />
         </ForgetPasswordContainer>
+        <MarginB />
       </LoginInputContainer>
       <LoginButtonContainer>
         <Btn
@@ -80,6 +82,7 @@ const LoginScreen = (props: any) => {
           varient="filled"
           component="primaryBtn"
           loadingColor="white"
+          textVarient="subheading1"
           onTap={() => onLogin()}
         />
         <SignUpContainer>
