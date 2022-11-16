@@ -44,13 +44,11 @@ const ChangePasswordScreen = (props: any) => {
           <View
             style={{
               ...baseStyles.flexCenter,
-              ...baseStyles.width80,
               marginTop: 100,
             }}>
             <View
               style={{
                 ...baseStyles.flexCenter,
-                ...baseStyles.width80,
                 marginTop: 100,
               }}>
               <View
