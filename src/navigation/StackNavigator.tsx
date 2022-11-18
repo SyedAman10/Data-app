@@ -21,11 +21,7 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{header: () => null}}
-      initialRouteName="ConnectWalletScreen">
-      <Stack.Screen
-        name="ConnectWalletScreen"
-        component={ConnectWalletScreen}
-      />
+      initialRouteName="LoginScreen">
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen
@@ -46,6 +42,10 @@ const StackNavigator = () => {
         component={ChooseHotspotScreen}
       />
       <Stack.Screen name="ChooseAuthScreen" component={ChooseAuthScreen} />
+      <Stack.Screen
+        name="ConnectWalletScreen"
+        component={ConnectWalletScreen}
+      />
     </Stack.Navigator>
   );
 };

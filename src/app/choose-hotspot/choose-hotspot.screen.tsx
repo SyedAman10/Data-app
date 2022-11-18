@@ -5,7 +5,7 @@ import {HotspotContainer, HotspotView} from './choose-hotspot.style';
 import Typography from '../../infrastructure/theme/Typography';
 import {MarginT} from '../../components/spacer/spacer-component';
 import Btn from '../../components/button/Btn';
-import { navigate } from '@storybook/addon-links';
+
 const ChooseHotspotScreen = (props: any) => {
   return (
     <SafeAreaView>
