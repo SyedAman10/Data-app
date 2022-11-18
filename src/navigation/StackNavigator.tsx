@@ -10,13 +10,22 @@ import ForgotPasswordScreen from '../app/forgetpassword/forget-password.screen';
 import ProfileScreen from '../app/profile-screen/profile-screen';
 import CheckMailScreen from '../app/check-email/check-email.screen';
 import SelectionScreen from '../app/selection-process/select-screen.styles';
+import GatewayScreen from '../app/gateway/gateway-screen';
+import ChooseHotspotScreen from '../app/choose-hotspot/choose-hotspot.screen';
+import ChooseAuthScreen from '../app/choose-auth/choose-auth.screen';
+import ConnectWalletScreen from '../app/connect_wallet/connect-wallet.screen';
+
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{header: () => null}}
-      initialRouteName="LoginScreen">
+      initialRouteName="ConnectWalletScreen">
+      <Stack.Screen
+        name="ConnectWalletScreen"
+        component={ConnectWalletScreen}
+      />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen
@@ -31,6 +40,12 @@ const StackNavigator = () => {
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
       <Stack.Screen name="CheckMailScreen" component={CheckMailScreen} />
+      <Stack.Screen name="GatewayScreen" component={GatewayScreen} />
+      <Stack.Screen
+        name="ChooseHotspotScreen"
+        component={ChooseHotspotScreen}
+      />
+      <Stack.Screen name="ChooseAuthScreen" component={ChooseAuthScreen} />
     </Stack.Navigator>
   );
 };

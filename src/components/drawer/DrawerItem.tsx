@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import TouchableComponent from '../touchable/TouchableComponent';
-import Colors from '../../infrastructure/theme/Colors';
-import {baseStyles} from '../../infrastructure/theme/BaseStyles';
+import Colors from '../../components/utility/Colors';
+import {baseStyles} from '../../infrastructure/theme/baseStyles';
 import Typography from '../../infrastructure/theme/Typography';
 import Icongraphy from '../../infrastructure/theme/Icongraphy';
 import {useTheme} from '@react-navigation/native';

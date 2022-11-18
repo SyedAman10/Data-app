@@ -22,8 +22,7 @@ const CheckMailScreen = () => {
               </Typography>
               <MarginB />
               <Typography varient="text1" textAlign="center" spacing={10}>
-                We have send password recover instructions to your mail check
-                your mail
+                We have send password recover instructions {'\n'} to your mail
               </Typography>
               <Btn
                 title="Reset Password"

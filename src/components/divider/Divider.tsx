@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@react-navigation/native';
-import {dimensions} from '../../infrastructure/theme/BaseStyles';
+import {dimensions} from '../../infrastructure/theme/baseStyles';
 
 const Divider = props => {
   const {spacing, varient, style} = props;

@@ -18,6 +18,10 @@ const Btn = (props: any) => {
     _color = 'white';
     _style = {backgroundColor: theme.colors.primary};
   }
+  if (varient == 'white') {
+    _color = '#1D1D1D';
+    _style = {backgroundColor: theme.colors.text};
+  }
   if (varient == 'text') {
     _color = theme.colors.primary;
     _style = {color: theme.colors.primary};
