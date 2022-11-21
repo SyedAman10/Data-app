@@ -71,16 +71,23 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   heading2: {
+    fontWeight: '700',
     fontSize: 25,
     fontFamily: 'Nunito-SemiBold',
   },
   subheading1: {
+    fontWeight: '700',
     fontSize: 20,
     fontFamily: 'Nunito-SemiBold',
   },
   subheading2: {
     fontSize: 15,
     fontFamily: 'Nunito-SemiBold',
+  },
+  subheading3: {
+    fontSize: 15,
+    fontFamily: 'Nunito-SemiBold',
+    color: '#2e2e',
   },
   text1: {
     fontSize: 12,

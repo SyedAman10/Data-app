@@ -7,7 +7,7 @@ const NotificationsScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Text>Notifications Screen</Text>
+        <Text style={{backgroundColor: '#fff'}}>Notifications Screen</Text>
       </ScrollView>
     </SafeAreaView>
   );
