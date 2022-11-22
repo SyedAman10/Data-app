@@ -21,7 +21,7 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{header: () => null}}
-      initialRouteName="LoginScreen">
+      initialRouteName="ChooseAuthScreen">
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen

@@ -6,7 +6,6 @@ import {
 import React, {useState} from 'react';
 import {LogBox} from 'react-native';
 import StackNavigator from './src/navigation/StackNavigator';
-import BottomTabs from './src/navigation/tab-navigator';
 import StorybookUI from './storybook';
 import Config from 'react-native-config';
 
@@ -71,7 +70,7 @@ const App = () => {
   }
   return (
     <NavigationContainer theme={MyTheme}>
-      <BottomTabs />
+      <StackNavigator />
     </NavigationContainer>
   );
 };
