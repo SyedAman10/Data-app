@@ -14,6 +14,10 @@ const Btn = (props: any) => {
     _color = color || theme.colors.primary;
     _style = {borderColor: color || theme.colors.primary, borderWidth: 1};
   }
+  if (varient == 'card-btn') {
+    _color = 'white';
+    _style = {backgroundColor: '#7FBF4E'};
+  }
   if (varient == 'filled') {
     _color = 'white';
     _style = {backgroundColor: theme.colors.primary};

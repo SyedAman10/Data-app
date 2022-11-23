@@ -8,6 +8,7 @@ import {LogBox} from 'react-native';
 import StackNavigator from './src/navigation/StackNavigator';
 import StorybookUI from './storybook';
 import Config from 'react-native-config';
+import BottomTabs from './src/navigation/tab-navigator';
 
 const App = () => {
   LogBox.ignoreAllLogs();

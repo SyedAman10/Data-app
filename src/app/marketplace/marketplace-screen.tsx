@@ -1,14 +1,19 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native';
-import {Card} from 'react-native-paper';
+import MarketplaceCard from '../../modals/marketplace-card/marketplace-card';
 
 const MarketplaceScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Card></Card>
+        <View style={{margin: 15, marginBottom: 40}}>
+          <MarketplaceCard />
+          <MarketplaceCard />
+          <MarketplaceCard />
+          <MarketplaceCard />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
