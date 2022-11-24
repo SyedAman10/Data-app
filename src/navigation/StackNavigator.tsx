@@ -15,14 +15,14 @@ import ChooseHotspotScreen from '../app/choose-hotspot/choose-hotspot.screen';
 import ChooseAuthScreen from '../app/choose-auth/choose-auth.screen';
 import ConnectWalletScreen from '../app/connect_wallet/connect-wallet.screen';
 import ChooseDeviceScreen from '../app/choose-device/choose-device.screen';
-
+import PaymentScreen from '../app/payment/payment-screen';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{header: () => null}}
-      initialRouteName="ChooseDeviceScreen">
+      initialRouteName="PaymentScreen">
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen
@@ -48,6 +48,8 @@ const StackNavigator = () => {
         component={ConnectWalletScreen}
       />
       <Stack.Screen name="ChooseDeviceScreen" component={ChooseDeviceScreen} />
+      <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
+    
     </Stack.Navigator>
   );
 };
